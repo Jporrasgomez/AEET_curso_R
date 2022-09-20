@@ -112,7 +112,7 @@ xtable(m1, digits = 2)
 #no funciona lo d ela tabla :(
 
 
-############### Visualización del modelo ################
+####### Visualización del modelo ################
 
 library(effects)
 plot(allEffects(m1))
@@ -202,7 +202,7 @@ plot(m2)
 ###### Varias variables categóricas ######
 
 plot(height ~ as.factor(site), data = trees)
-plot(height ~site, data = trees)
+plot(height ~ site, data = trees)
 
 m3 <- lm(height ~ (site), data = trees)
 
@@ -262,3 +262,24 @@ summary(m5)
 
 ############ EVALUAR CAPACIDAD PREDICTORA DEL MODELO #############
 #mirar pdf
+
+
+
+
+
+##### COMPARAR MODELOS  #########
+#Hay que tener cuidado a la hora de comparar modleos. Puede hacer que tendamos a generar demasiados modelos que no
+#tengan sentido biologico. 
+
+
+library(performance)
+compare_performance(m1, m2, m3, m4)
+
+library(see)
+plot(compare_performance(m1, m2, m3, m4))
+
+library(parameters)
+compare_parameters(m1, m2, m3, m4)
+
+plot(compare_parameters(m1, m2, m3, m4))
+
