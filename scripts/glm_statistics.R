@@ -109,7 +109,7 @@ library("xtable")
 
 xtable(m1, digits = 2)
 
-#no funciona lo d ela tabla :(
+#no funciona lo de la tabla :(
 
 
 ####### Visualización del modelo ################
@@ -251,6 +251,10 @@ plot_model(m4, type = "est")
 plot(parameters(m4))
 
 
+m4 <- lm(height ~ site * dbh, data = trees)
+
+#Cuando ponemos + es que asumimos que no hay interaccion entre site y dbh, pero si ponemos
+# * asumimos que si la hay 
 
 
 ###### otro modelo ######
@@ -282,4 +286,6 @@ library(parameters)
 compare_parameters(m1, m2, m3, m4)
 
 plot(compare_parameters(m1, m2, m3, m4))
+
+
 
